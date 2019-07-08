@@ -34,9 +34,9 @@ module.exports = function(app, db){
         var { invoice } = req.body;
         var id = req.params.id;
 
-        var sql = 'UPDATE invoices SET amount='+ invoice.amount+', createdDate='+invoice.createdDate+' WHERE rowid=' + invoice.rowid;
+        var sql = 'UPDATE invoices SET amount='+ invoice.amount+', createdDate="'+invoice.createdDate+'" WHERE rowid=' + id;
         db.run(sql, function(err) {
-            return res.send({invoice: {id: this.lastID}});
+            return res.send({invoice: {id: id}});
         });
     });
 
