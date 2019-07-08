@@ -1,0 +1,16 @@
+.site-title {
+    margin-left: 5%;
+    margin-bottom: 50px;
+}
+
+.new-btn {
+    float: right;
+}
+
+.filter-label {
+    margin-right: 10px;
+}
+
+.filter-input {
+    margin-right: 10px;
+}
