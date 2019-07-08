@@ -1,1 +1,38 @@
-{{outlet}}
+<div class="container">
+    <div class="row new-btn">
+        <span class="filter-label">Search By Date:</span>
+        {{input class="filter-input" type="date" name="filterDate" id="filterDate" }}
+
+        {{#link-to "invoice.new" class="btn btn-primary"}}
+            New Invoice
+        {{/link-to}}
+    </div>
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>No</td>
+                    <td>Amount</td>
+                    <td>Date</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each this.model as |invoice index|}}
+                <tr>
+                    <td>{{sum index 1}}</td>
+                    <td>{{invoice.amount}}</td>
+                    <td>{{invoice.createdDate}}</td>
+                    <td>
+                        <button class="btn btn-link" {{action "editInvoice" invoice }}>Edit</button>
+                        /
+                        <button class="btn btn-link" {{action "deleteInvoice" invoice }}>Delete</button>
+                    </td>
+                </tr>
+                {{else}}
+                <p class="nothing-label">There is no invoices.</p>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
